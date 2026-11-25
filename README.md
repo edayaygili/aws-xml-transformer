@@ -1,69 +1,87 @@
-# aws-xml-transformer
-“AWS-based system to transform XML files using CloudFormation, Lambda, S3, SQS”
-# 🧠  AWS Automation & GPT-Based Editor
+# AWS XML Transformer & AI-Powered XML Editor
 
-This repository contains two integrated tools developed for processing and editing XML product data within our company environment. Both tools are designed to work independently or in combination, enabling efficient XML transformation and AI-powered editing.
+An event-driven cloud automation project for XML data transformation and natural language-based XML editing, developed during my Cloud Developer internship at NTT DATA.
 
----
+## Project Overview
 
-## 📁 1. AWS XML Transformer (`/aws-xml-transformer`)
+This project combines AWS cloud services, infrastructure automation, and generative AI to simplify XML data processing and reduce manual editing efforts.
 
-This project provides an automated infrastructure for transforming `items.xml` into `products.xml` using AWS services and XSLT.
+The project consists of two main components that can operate independently.
 
-### 🔧 Features
-- Event-driven architecture: **S3 → SQS → Lambda**
-- Automatically processes uploaded XML files
-- Uses **XSLT** to convert XML structure
-- Fully deployable via **CloudFormation**
+## 1. AWS XML Transformer
 
-### 📂 Folder Contents
-- `template.yaml`: Main CloudFormation template
-- `lambda/`: Python-based Lambda function for XML processing
+An automated XML transformation pipeline built using AWS services and XSLT.
 
-### 🚀 Deployment (CLI)
-```bash
-aws cloudformation deploy \
-  --template-file template.yaml \
-  --stack-name xml-transformer-stack \
-  --capabilities CAPABILITY_NAMED_IAM
+### Architecture
+
+```mermaid
+flowchart LR
+    A[XML File Upload] --> B[Amazon S3]
+    B --> C[Amazon SQS]
+    C --> D[AWS Lambda]
+    D --> E[XSLT Transformation]
+    E --> F[Transformed XML]
 ```
 
----
+### Key Features
 
-## 📁 2. GPT-based XML Editor (`/gpt-editor`)
+- Event-driven cloud architecture
+- Automated XML file processing
+- XML transformation using XSLT
+- Infrastructure as Code with AWS CloudFormation
+- Serverless processing with AWS Lambda
 
-A user-friendly **Streamlit** app that allows users to modify XML files using plain English commands. Ideal for non-technical users.
+## 2. AI-Powered XML Editor
 
-### 🧠 Key Features
-- Natural language editing of XML files (powered by **GPT**)
-- Sample command: _"Change the price of all items in category A to 10"_
-- XML updated automatically and previewed instantly
-- Modular design – can be run locally or deployed to the web
+A Streamlit application that enables users to modify XML data through natural language instructions.
 
-### 📂 Folder Contents
-- `app.py`: Main Streamlit application
-- `requirements.txt`: Dependencies
-- `prompts/`: Example prompt templates
+### Key Features
 
-### ▶️ Run Locally
-```bash
-cd gpt-editor
-pip install -r requirements.txt
-streamlit run app.py
-```
+- GPT-powered XML editing
+- Natural language command processing
+- Automated XML modifications
+- Interactive XML preview
+- User-friendly interface
 
----
+### Example Use Case
 
-## ✅ Benefits
+User instruction:
 
-- Reduces manual XML editing workload
-- Enables automation through AWS
-- Empowers non-technical users via natural language
-- Fully modular and customizable
+> Change the price of all items in category A to 10.
 
----
+The application processes the instruction and updates the corresponding XML data.
 
-## 🏢 For Internal Use
+## Technologies Used
 
-This project was developed as part of internal digitalization initiatives.  
-To request access or suggest improvements, please contact the project owner.
+| Technology | Purpose |
+|---|---|
+| Python | Application and backend development |
+| AWS S3 | File storage |
+| AWS SQS | Message queuing |
+| AWS Lambda | Serverless processing |
+| AWS CloudFormation | Infrastructure automation |
+| XML & XSLT | Data transformation |
+| Streamlit | User interface |
+| GPT | Natural language processing |
+
+## My Contributions
+
+- Developed an event-driven XML processing workflow using AWS services.
+- Implemented XML transformation logic using Python and XSLT.
+- Worked with CloudFormation for infrastructure automation.
+- Developed a GPT-powered XML editing interface using Streamlit.
+- Combined cloud automation and generative AI to simplify data processing workflows.
+
+## Skills Demonstrated
+
+- Cloud Computing
+- Serverless Architecture
+- Event-Driven Systems
+- Infrastructure as Code
+- Python Development
+- Generative AI Integration
+- XML Data Processing
+
+## Developer
+
+Eda Yaygılı – Software Engineer
